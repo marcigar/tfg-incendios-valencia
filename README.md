@@ -100,7 +100,7 @@ La aplicación se abrirá automáticamente en http://localhost:8501. No se requi
 
 
 
-Camino B — Reconstrucción Completa
+### Camino B — Reconstrucción Completa
 
 Este camino permite reproducir desde cero la totalidad del experimento: desde la descarga de datos meteorológicos hasta el reentrenamiento de los modelos. Requiere una API key de AEMET OpenData (gratuita) guardada en datos/APIs/api_AEMET.txt.
 
@@ -110,43 +110,43 @@ Fase 1 · Pipeline de Adquisición y Enriquecimiento de Datos
 
 Ejecute los siguientes scripts en orden estricto. Cada uno lee la salida del anterior desde datos/processed/:
 
-# 1.1 Orquestación inicial: limpieza del registro EGIF (MITECO) y
+#### 1.1 Orquestación inicial: limpieza del registro EGIF (MITECO) y
 
-#     cruce con la red de estaciones AEMET (genera 03_dataset_final_CV.csv)
+     cruce con la red de estaciones AEMET (genera 03_dataset_final_CV.csv)
 
 python src/run_pipeline.py
 
-# 1.2 Imputación climática por reanálisis ERA5 vía Open-Meteo
+ ### 1.2 Imputación climática por reanálisis ERA5 vía Open-Meteo
 
-#     (resuelve el 40% de nulos de AEMET, genera 04_dataset_completo_clima_elevacion.csv)
+     (resuelve el 40% de nulos de AEMET, genera 04_dataset_completo_clima_elevacion.csv)
 
 python src/completar_clima_era5.py
 
-# 1.3 Extracción de humedad relativa horaria desde ERA5
+### 1.3 Extracción de humedad relativa horaria desde ERA5
 
-#     (genera 05_dataset_final_para_EDA.csv)
+     (genera 05_dataset_final_para_EDA.csv)
 
 python src/extraer_humedad.py
 
-# 1.4 Integración de cobertura vegetal COSCV 2024 mediante cruce espacial
+### 1.4 Integración de cobertura vegetal COSCV 2024 mediante cruce espacial
 
-#     (genera 06_dataset_final_enriquecido.csv)
+    (genera 06_dataset_final_enriquecido.csv)
 
 python src/extraer_vegetacion.py
 
-# 1.5 Extracción topográfica: pendiente y orientación de ladera (SRTM 30m)
+### 1.5 Extracción topográfica: pendiente y orientación de ladera (SRTM 30m)
 
-#     (genera 07_dataset_final_TOPOGRAFICO.csv)
+     (genera 07_dataset_final_TOPOGRAFICO.csv)
 
 python src/extraer_topografia_final_api.py
 
-# 1.6 Generación de pseudo-ausencias — Alternativa A (Caso-Control Emparejado)
+### 1.6 Generación de pseudo-ausencias — Alternativa A (Caso-Control Emparejado)
 
-#     (genera 08_dataset_modelado_BALANCEADO.csv)
+    (genera 08_dataset_modelado_BALANCEADO.csv)
 
 python src/generar_ausencias.py
 
-# 1.7 Pipeline completo para la Alternativa B (Muestreo Espacio-Temporal Puro)
+### 1.7 Pipeline completo para la Alternativa B (Muestreo Espacio-Temporal Puro)
 
 python src/alternativa_b/generar_ausencias_altB.py
 
