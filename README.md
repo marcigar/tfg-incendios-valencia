@@ -14,7 +14,7 @@ Este repositorio contiene el ecosistema técnico, los cuadernos de experimentaci
 
 
 
-\## 🚀 Estructura del Proyecto
+\##  Estructura del Proyecto
 
 
 
