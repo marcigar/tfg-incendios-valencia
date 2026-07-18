@@ -6,7 +6,7 @@ Este repositorio contiene el ecosistema técnico, los cuadernos de experimentaci
 
 
 
-\## 🚀 Estructura del Proyecto
+\## Estructura del Proyecto
 
 
 
@@ -20,7 +20,7 @@ Este repositorio contiene el ecosistema técnico, los cuadernos de experimentaci
 
 
 
-\## 🛠️ Requisitos e Instalación
+\## Requisitos e Instalación
 
 
 
