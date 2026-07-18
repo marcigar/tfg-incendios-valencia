@@ -78,13 +78,13 @@ Paso 2 — Instalar dependencias
 
 Se recomienda hacerlo dentro de un entorno virtual de Conda o venv:
 
-# Opción A: entorno Conda (recomendado)
+ Opción A: entorno Conda (recomendado)
 
 conda env create -f environment.yml
 
 conda activate ads
 
-# Opción B: pip estándar
+ Opción B: pip estándar
 
 pip install -r requirements.txt
 
